@@ -1,0 +1,80 @@
+/* ********** ********** ********** */
+/*          SLIDE ANI CSS           */
+/* ********** ********** ********** */
+
+/* (66.8 + 10) : 계산을 통해 정확한 길이 측정  */
+@keyframes slide {
+    from { 
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-76.8rem * 3));
+    }
+}
+
+.slideAni_container {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.slideAni_container section {}
+
+.slideAni_container .ani_slider {
+    width: 40rem;
+    overflow: hidden;
+    position: relative;
+}
+  
+.slideAni_container .ani_container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    animation-name: slide;
+    animation-duration: 35s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    height: 0;
+    padding-top: 80%;
+    position: relative;
+}
+  
+.slideAni_container .ani_container .imgBox {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate3d(0, -50%, 0);
+    line-height: 0;
+    width: 66.8rem; /* 1000px */
+    height: 100%;
+}
+  
+.slideAni_container .ani_container .imgBox img {
+    height: auto;
+    margin: 0 0 0 10rem;
+}
+  
+
+/* 그라데이션 */
+.slideAni_container .ani_slider::before,
+.slideAni_container .ani_slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    z-index: 99999;
+}
+
+.slideAni_container .ani_slider::before {
+    left: -1rem;
+    background: linear-gradient( to right, rgba(40, 118, 248, 1) 10%, rgba(40, 118, 248, 0) );
+}
+
+.slideAni_container .ani_slider::after {
+    right: -1rem;
+    background: linear-gradient( to left, rgba(40, 118, 248, 1) 10%, rgba(40, 118, 248, 0) );
+}
